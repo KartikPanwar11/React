@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Elements</title>
+</head>
+<body>
+    <div id="root"></div>
+
+<!-- we need to make this using react so we do the below 
+    <div>
+        <div>
+            <h1>Hello</h1>
+        </div>
+    </div> 
+    
+    for multiple things like sibling under a child we will use an array to impliment 
+    
+    -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        const parent = React.createElement("div",{id:"parent"},
+            React.createElement("div",{id:"child"},
+                [React.createElement("h1",{},"Hello from the nested element!"),
+                    React.createElement('h2',{},'H2 from the nested one')
+                ]
+            )
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(parent);
+
+    </script>
+</body>
+</html>
