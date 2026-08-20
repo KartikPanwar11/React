@@ -1,13 +1,15 @@
-import React from 'react'
 import CBC from './CBC'
+import {Component} from 'react'
 
-const Parent = () => {
-  return (
-    <div>
+class Parent extends Component {
+  render() {
+    return (
+      <div>
         <h1>Parent</h1>
         <CBC name={"Fiery"} location={"India"}/>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default Parent
