@@ -4,32 +4,39 @@ class CBC extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log('Child Constructor Called');
 
         this.state = {
-            count: 0
+            userInfo:{
+                name: 'Dummy Name',
+                location: 'Default Location'
+            }
         };
+
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         console.log('Child Component Mounted');
-        
+        const data = await fetch('https://api.github.com/users/kartikpanwar11');
+        const jsonData = await data.json();
+        console.log(jsonData);
+
+        this.setState({
+            userInfo: jsonData
+        });
     }
 
 
 
     render() {
-        const{ name, location } = this.props;
-        const {count} = this.state;
-
+        // const{ name, location } = this.props;
+        const{ name, location } = this.state.userInfo;
 
         return (
             <div>
                 <h1>Class Based Component</h1>
                 <p>Name: {name}</p>
                 <p>Location: {location}</p>
-                <h2>Count: {count}</h2>
-                <button onClick={() => this.setState({count: count + 1})}>Increment</button>
-                <button onClick={() => this.setState({count: count - 1})}>Decrement</button>
             </div>
         );
     }
