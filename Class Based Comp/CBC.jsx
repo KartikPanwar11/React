@@ -10,6 +10,10 @@ class CBC extends React.Component {
         };
     }
 
+    componentDidMount() {
+        console.log('Component Mounted');
+    }
+
 
 
     render() {
