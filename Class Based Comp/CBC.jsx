@@ -11,7 +11,8 @@ class CBC extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Component Mounted');
+        console.log('Child Component Mounted');
+        
     }
 
 
